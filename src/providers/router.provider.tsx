@@ -1,12 +1,18 @@
-import { createBrowserRouter, RouterProvider as Router } from "react-router-dom";
 import ErrorPage from "@/pages/error.page";
+import HomePage from "@/pages/home.page";
 import * as React from "react";
+import { createBrowserRouter, RouterProvider as Router } from "react-router-dom";
+import ProtectRoute from "../components/hoc/protect-route";
 
 const RouterProvider: React.FC = () => {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <div>Todos List</div>,
+            element: (
+                <ProtectRoute>
+                    <HomePage />
+                </ProtectRoute>
+            ),
             errorElement: <ErrorPage message="Hello" status="404" />,
         },
         {
