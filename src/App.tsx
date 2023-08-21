@@ -1,10 +1,14 @@
+import { Toaster } from "react-hot-toast";
 import "./app.css";
+import RouterProvider from "@/providers/router.provirder";
+import QueryClientProvider from "@/providers/query-client.provider";
 
 const App = () => {
     return (
-        <div className="w-full h-screen flex justify-center items-center bg-black text-white text-4">
-            Hello
-        </div>
+        <QueryClientProvider>
+            <RouterProvider />
+            <Toaster position="bottom-center" />
+        </QueryClientProvider>
     );
 };
 
