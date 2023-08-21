@@ -1,4 +1,5 @@
 import axiosModule from "axios";
+import Cookies from "universal-cookie";
 
 const axios = axiosModule.create({
     baseURL: "https://interview.aval.dev/api",
@@ -7,9 +8,11 @@ const axios = axiosModule.create({
 axios.interceptors.request.use((config) => {
     const url = config.url;
 
-    if (!url!.includes("auth/signin") || !url!.includes("auth/signup")) {
-        config.headers.Authorization = `Bearer ${""}`;
+    const cookies = new Cookies(null, { path: "/" });
+    const authToken = cookies.get("auth-token") as string;
 
+    if (!url!.includes("auth/signin") || !url!.includes("auth/signup")) {
+        config.headers.Authorization = `Bearer ${authToken}`;
         return config;
     }
 
