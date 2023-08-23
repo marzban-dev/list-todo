@@ -1,5 +1,9 @@
 import fs from "fs/promises";
 
+/**
+ *  This script helps to convert a list of svgs
+ *  directly into react component
+ */
 (async () => {
     const FOLDER_PATH = "./src/components/svg-components";
 

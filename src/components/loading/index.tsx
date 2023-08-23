@@ -1,9 +1,9 @@
-import IconSpinnerThird from "@/components/svg-components/spinner-third";
+import Spinner from "../spinner";
 
 const Loading = () => {
     return (
-        <div className="w-full h-screen bg-black flex justify-center items-center">
-            <IconSpinnerThird className="fill-white h-[20px]" />
+        <div className="w-full h-screen flex justify-center items-center bg-transparent">
+            <Spinner size={40} />
         </div>
     );
 };

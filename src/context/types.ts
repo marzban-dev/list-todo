@@ -1,16 +1,22 @@
 export type AppState = {
     theme: string;
+    user: null | User;
 };
 
-type ToggleAction = {
-    type: "toggle";
+type ThemeToggleAction = {
+    type: "theme-toggle";
 };
 
-type InitAction = {
-    type: "init";
+type ThemeInitAction = {
+    type: "theme-init";
 };
 
-export type AppActions = ToggleAction | InitAction;
+type SetUserAction = {
+    type: "user-set";
+    payload: null | User;
+};
+
+export type AppActions = ThemeToggleAction | ThemeInitAction | SetUserAction;
 
 export type AppContextProviderProps = {
     children: React.ReactNode;
@@ -18,6 +24,8 @@ export type AppContextProviderProps = {
 
 export type TodoContextType = {
     theme: string;
+    user: User | null;
     toggleTheme: () => void;
     initTheme: () => void;
+    setUser: (user: null | User) => void;
 };

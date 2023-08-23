@@ -1,8 +1,12 @@
-import ErrorPage from "@/pages/error.page";
-import HomePage from "@/pages/home.page";
+import ProtectRoute from "@/components/hoc/protect-route";
+import PageLayout from "@/layouts/page-layout";
+import CreatePage from "@/pages/create";
+import ErrorPage from "@/pages/error";
+import HomePage from "@/pages/home";
+import LoginPage from "@/pages/login";
+import TodoPage from "@/pages/todo";
 import * as React from "react";
 import { createBrowserRouter, RouterProvider as Router } from "react-router-dom";
-import ProtectRoute from "../components/hoc/protect-route";
 
 const RouterProvider: React.FC = () => {
     const router = createBrowserRouter([
@@ -10,26 +14,36 @@ const RouterProvider: React.FC = () => {
             path: "/",
             element: (
                 <ProtectRoute>
-                    <HomePage />
+                    <PageLayout>
+                        <HomePage />
+                    </PageLayout>
                 </ProtectRoute>
             ),
             errorElement: <ErrorPage message="Hello" status="404" />,
         },
         {
             path: "/todo/:id",
-            element: <div>Todo Details</div>,
-        },
-        {
-            path: "/edit/:id",
-            element: <div>Edit</div>,
+            element: (
+                <ProtectRoute>
+                    <PageLayout>
+                        <TodoPage />
+                    </PageLayout>
+                </ProtectRoute>
+            ),
         },
         {
             path: "/create",
-            element: <div>Create</div>,
+            element: (
+                <ProtectRoute>
+                    <PageLayout>
+                        <CreatePage />
+                    </PageLayout>
+                </ProtectRoute>
+            ),
         },
         {
             path: "/login",
-            element: <div>Login</div>,
+            element: <LoginPage />,
         },
     ]);
 
