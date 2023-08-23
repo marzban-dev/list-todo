@@ -17,7 +17,7 @@ import fs from "fs/promises";
             .map((chunk) => chunk[0].toUpperCase() + chunk.slice(1, chunk.length))
             .join("");
 
-        const template = `"use client";\n\nimport Comp${PascalCase} from "@/components/svg-components/svgs/${fileName}.svg"\n\nconst Icon${PascalCase} = (props : {className?:string; style?:React.CSSProperties}) => {\n    return <Comp${PascalCase} {...props}/>\n}\n\nexport default Icon${PascalCase}`;
+        const template = `"use client";\n\nimport Comp${PascalCase} from "@/components/svg-components/svgs/${fileName}.svg"\nconst Comp = Comp${PascalCase} as any;\n\nconst Icon${PascalCase} = (props : {className?:string; style?:React.CSSProperties}) => {\n    return <Comp {...props}/>\n}\n\nexport default Icon${PascalCase}`;
 
         await fs.writeFile(`${FOLDER_PATH}/${fileName}.tsx`, template);
     }

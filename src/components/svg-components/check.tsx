@@ -1,9 +1,10 @@
 "use client";
 
 import CompCheck from "@/components/svg-components/svgs/check.svg"
+const Comp = CompCheck as any;
 
 const IconCheck = (props : {className?:string; style?:React.CSSProperties}) => {
-    return <CompCheck {...props}/>
+    return <Comp {...props}/>
 }
 
 export default IconCheck
