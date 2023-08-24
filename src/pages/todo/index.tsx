@@ -16,9 +16,11 @@ const TodoPage = () => {
         if (todo) {
             const date = new Date(todo?.updated_at);
             const days = timeDifference(date, new Date());
-            return `${t("todo.updated-date-text")} ${
-                days === 0 ? t("todo.updated-today-text") : days
-            } ${days === 0 ? "" : t("todo.updated-past-text")}`;
+
+            const daysText = days === 0 ? t("todo.updated-today-text") : days;
+            const pastText = days === 0 ? "" : t("todo.updated-past-text");
+            
+            return `${t("todo.updated-date-text")} ${daysText} ${pastText}`;
         }
     }, [todo]);
 
