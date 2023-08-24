@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { AppContext } from "../context/app.context";
+import { AppContext } from "@/context/app.context";
 
 type AppProviderProps = {
     children: React.ReactNode;
