@@ -1,4 +1,4 @@
-import IconSpinnerThird from "../svg-components/spinner-third";
+import IconSpinnerThird from "@/components/svg-components/spinner-third";
 import { SpinnerProps } from "./types";
 
 const Spinner: React.FC<SpinnerProps> = ({ size = 20 }) => {

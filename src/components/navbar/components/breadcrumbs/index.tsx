@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
-import IconHouse from "../../../svg-components/house";
+import IconHouse from "@/components/svg-components/house";
 
 const Breadcrumbs: React.FC = () => {
     const { pathname } = useLocation();

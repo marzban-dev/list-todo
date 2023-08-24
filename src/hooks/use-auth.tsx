@@ -2,7 +2,7 @@ import axios from "@/configs/axios";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
-import { AppContext } from "../context/app.context";
+import { AppContext } from "@/context/app.context";
 
 const cookies = new Cookies(null, { path: "/" });
 

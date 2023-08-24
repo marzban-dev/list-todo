@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import IconCircleExclamation from "../svg-components/circle-exclamation";
+import IconCircleExclamation from "@/components/svg-components/circle-exclamation";
 import { InputProps } from "./types";
 
 const Input: React.FC<InputProps> = ({ error, errorMessage, fullWidth, className, ...rest }) => {

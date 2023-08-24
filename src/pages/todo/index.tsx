@@ -3,8 +3,8 @@ import { useTodoQuery } from "@/hooks/use-todo";
 import classNames from "classnames";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
-import DoneButton from "../../components/done-button";
-import timeDifference from "../../utils/time-difference";
+import DoneButton from "@/components/done-button";
+import timeDifference from "@/utils/time-difference";
 import { useTranslation } from "react-i18next";
 
 const TodoPage = () => {
