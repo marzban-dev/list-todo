@@ -53,7 +53,9 @@ const TodoPage = () => {
             </div>
         </div>
     ) : (
-        <Spinner size={30} />
+        <div className="w-full flex justify-center items-center">
+            <Spinner size={30} />
+        </div>
     );
 };
 
