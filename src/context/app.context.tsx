@@ -5,7 +5,7 @@ export const AppContext = createContext({} as TodoContextType);
 
 const initialState: AppState = {
     user: null,
-    theme: "light",
+    theme: "dark",
 };
 
 const reducer: Reducer<AppState, AppActions> = (state, action) => {
