@@ -16,7 +16,7 @@ const TodoPage = () => {
         if (todo) {
             const date = new Date(todo?.updated_at);
             const days = timeDifference(date, new Date());
-
+            
             const daysText = days === 0 ? t("todo.updated-today-text") : days;
             const pastText = days === 0 ? "" : t("todo.updated-past-text");
             
@@ -45,10 +45,7 @@ const TodoPage = () => {
                     </div>
                 </div>
                 <p className="dark:text-[rgb(180,180,180)] text-[rgb(110,110,110)] w-full px-4 max-w-full whitespace-pre-wrap">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur vitae
-                    harum quod! Reiciendis dignissimos perferendis praesentium natus eos. Labore
-                    tempore architecto laudantium in aspernatur ducimus debitis, delectus blanditiis
-                    asperiores quas!
+                    {todo.description}
                 </p>
             </div>
         </div>
