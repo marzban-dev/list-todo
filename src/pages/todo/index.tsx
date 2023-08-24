@@ -1,25 +1,28 @@
+import DoneButton from "@/components/done-button";
 import Spinner from "@/components/spinner";
 import { useTodoQuery } from "@/hooks/use-todo";
+import timeDifference from "@/utils/time-difference";
 import classNames from "classnames";
 import { useMemo } from "react";
-import { useParams } from "react-router-dom";
-import DoneButton from "@/components/done-button";
-import timeDifference from "@/utils/time-difference";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
 
 const TodoPage = () => {
     const { t, i18n } = useTranslation();
     const params = useParams<{ id: string }>();
-    const { data: todo } = useTodoQuery(Number(params.id));
+    const navigate = useNavigate();
+    const { data: todo, isError } = useTodoQuery(Number(params.id));
+
+    if (isError) navigate("/error");
 
     const lastUpdated = useMemo(() => {
         if (todo) {
             const date = new Date(todo?.updated_at);
             const days = timeDifference(date, new Date());
-            
+
             const daysText = days === 0 ? t("todo.updated-today-text") : days;
             const pastText = days === 0 ? "" : t("todo.updated-past-text");
-            
+
             return `${t("todo.updated-date-text")} ${daysText} ${pastText}`;
         }
     }, [todo]);
