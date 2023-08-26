@@ -29,7 +29,7 @@ const resources = {
             todo: {
                 "updated-date-text": "Last updated",
                 "updated-today-text": "Today",
-                "updated-past-text": "ago",
+                "updated-past-text": "days ago",
             },
             toast: {
                 "create-todo-text": "Todo created",
@@ -69,7 +69,7 @@ const resources = {
             todo: {
                 "updated-date-text": "آخرین تغییر",
                 "updated-today-text": "امروز",
-                "updated-past-text": "گذشته",
+                "updated-past-text": "روز گذشته",
             },
             toast: {
                 "create-todo-text": "تودو ساخته شد",
